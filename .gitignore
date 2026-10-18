@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.npm-cache/
+.dsh-home/
+.tmp/
+*.log
+.DS_Store
+.dsh-web/
+
+!docs/evidence/*.log

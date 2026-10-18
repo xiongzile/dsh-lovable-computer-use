@@ -1,0 +1,7 @@
+[
+  {
+    "directory": "/Users/bytedance/Workspace/github/dsh-lovable-computer-use/tests/fixtures/cpp-ok/build",
+    "file": "../src/main.cpp",
+    "command": "/opt/homebrew/opt/llvm/bin/clang++ -std=c++17 -I../include -c ../src/main.cpp"
+  }
+]

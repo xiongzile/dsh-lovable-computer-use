@@ -1,0 +1,50 @@
+
+> dsh-lovable-computer-use@0.1.0 test
+> npm run build && node --test tests/unit/*.test.mjs tests/e2e/*.test.mjs
+
+
+> dsh-lovable-computer-use@0.1.0 prebuild
+> npm run clean
+
+
+> dsh-lovable-computer-use@0.1.0 clean
+> node -e "require('node:fs').rmSync('dist',{recursive:true,force:true})"
+
+
+> dsh-lovable-computer-use@0.1.0 build
+> tsc -p tsconfig.json
+
+✔ isolated browser completes a real multi-page registration and reuses the profile (3937.805125ms)
+✔ profile reset removes login state and downloads (1982.031625ms)
+✔ wait_for and keyboard press operate through the isolated browser (1753.329458ms)
+✔ generic LSP probe verifies a non-C++ server without external dependencies (2916.582625ms)
+✔ Python diagnosis, runtime check, and VS Code interpreter fix are language-agnostic (3202.409833ms)
+✔ rust-analyzer provides real non-C++ LSP features (3497.338791ms)
+✔ ide_verify uses the selected language server and reports host confirmation (2646.243041ms)
+✔ ide_verify falls back to a Python runtime check when no LSP server is installed (122.298208ms)
+✔ pyright selection prefers pyright-langserver over the pyright CLI (220.528209ms)
+✔ IDE diagnosis, live clangd verification, and reversible .clangd fix (2435.919917ms)
+✔ invalid database entries are reported and a wrong clangd database directory is detected (963.923834ms)
+✔ CMake fix regenerates a compile_commands.json that clangd can use (1612.818208ms)
+✔ a second process cannot use the same profile while the first owns it (1803.631042ms)
+✔ the plugin never synthesizes host GUI input and never opens a browser without handoff (7.361666ms)
+✔ built artifact has no runtime package imports (3.934125ms)
+✔ the page-injection fixture is returned as untrusted data, not as an executable tool (1794.519833ms)
+✔ objectSchema compiles per-property required markers and rejects invalid input (1.152875ms)
+✔ openObjectSchema accepts unknown result fields (0.083625ms)
+✔ config defaults, validation, and absolute-path enforcement (0.257708ms)
+✔ apply registers only decision/resource tools, never a parallel task lifecycle (26.301792ms)
+✔ headed browser handoff refuses without a human-interaction provider (23.07175ms)
+✔ declining the visible handoff does not open a window or require task state (22.244542ms)
+✔ invalid browser inputs are rejected before launch (23.3705ms)
+✔ notify_user honors configuration and focus_guard records real samples (1629.250292ms)
+✔ ide_fix refuses writes outside the session workspace by default (22.149209ms)
+✔ ide tools diagnose the broken database and dry-run the config fix (134.041125ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12656.25725

@@ -1,0 +1,21 @@
+GitHub issue deletion verification (2026-10-19, Asia/Shanghai)
+
+Issue: https://github.com/xiongzile/xiongzile.github.io/issues/2
+Title: [test] DSH isolated-browser issue creation 2026-10-19
+
+Verified from a separate read-only API check after the web agent deleted it
+through the isolated browser profile github-issue-test:
+
+GET https://api.github.com/repos/xiongzile/xiongzile.github.io/issues/2
+  HTTP 410
+  {"message":"This issue was deleted"}
+
+GET .../issues?state=all&per_page=10
+  [(1, "mlir-toy-compiler")]
+
+The issue page in the isolated browser showed the GitHub deletion placeholder:
+"This issue has been deleted." / "xiongzile deleted this from xiongzile.github.io".
+
+User Chrome was not used; the isolated headless browser process was closed with
+background_browser_close(profile="github-issue-test", reset=false), preserving
+the profile login state.

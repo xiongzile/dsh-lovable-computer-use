@@ -1,0 +1,11 @@
+# Bundle patch for dsh-lovable-computer-use. Installed profiles insert this row
+# after their base bundles; later profile patches can override the config by id.
+- insert:
+    - id: lovable-computer-use
+      name: 'dsh-lovable-computer-use'
+      config:
+        # stateDir defaults to $DSH_HOME/lovable-computer-use.
+        idleCloseMs: 1800000
+        notifications: true
+        headedHandoff: true
+        logLevel: info

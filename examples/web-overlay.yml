@@ -1,0 +1,13 @@
+# Source-checkout web overlay: edit the absolute path, then run:
+#   cd /path/to/deepseek-harness
+#   DSH_HOME=/path/to/dsh-home node --import tsx/esm apps/cli/src/bin.ts \
+#     --profile lovable-web --patch /path/to/dsh-lovable-computer-use/examples/web-overlay.yml \
+#     --port 0 --no-open
+- insert:
+    - id: lovable-computer-use
+      name: '/Users/bytedance/Workspace/github/dsh-lovable-computer-use/dist/index.js'
+      config:
+        idleCloseMs: 0
+        notifications: false
+        logLevel: info
+        stateDir: '/Users/bytedance/Workspace/github/dsh-lovable-computer-use/.dsh-web/lovable-state'

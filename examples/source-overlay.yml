@@ -1,0 +1,14 @@
+# Source-checkout overlay: mounts the built plugin from this checkout.
+# Edit the absolute name below to match your checkout, then:
+#   cd /path/to/deepseek-harness
+#   DSH_HOME=/path/to/dsh-home node --import tsx/esm apps/cli/src/bin.ts \
+#     --profile lovable --patch /path/to/dsh-lovable-computer-use/examples/source-overlay.yml \
+#     "use background_browser_* to ..."
+- insert:
+    - id: lovable-computer-use
+      name: '/ABSOLUTE/PATH/TO/dsh-lovable-computer-use/dist/index.js'
+      config:
+        idleCloseMs: 0
+        notifications: false
+        logLevel: info
+        # chromeSandbox: auto   # auto | required | disabled

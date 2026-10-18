@@ -1,0 +1,29 @@
+Pre-refactor measurement (2026-10-19), current build:
+
+Task tool definitions injected into every model request:
+  count: 9
+  JSON chars (description + parameters + output schema): 8855
+  rough token estimate (chars / 4): ~2216
+
+Per-tool:
+  task_start    908 chars  ~227 tok
+  task_status   726 chars  ~182 tok
+  task_update   859 chars  ~215 tok
+  task_evidence 1298 chars ~325 tok
+  task_change   1353 chars ~338 tok
+  task_handoff  1040 chars ~260 tok
+  task_finish   1178 chars ~295 tok
+  task_recover   886 chars ~222 tok
+  task_prune     607 chars ~152 tok
+
+Real task-tool traffic in 5 local source-web sessions:
+  tool calls: 33
+  result text: 16842 chars (~4210 tok)
+  by tool:
+    task_start 4, task_status 4, task_update 3,
+    task_change 6, task_evidence 9, task_handoff 0,
+    task_finish 3, task_recover 4, task_prune 0
+
+This excludes model-generated arguments, assistant bookkeeping text, and the
+extra turns spent deciding what to record. It also excludes the persistent
+task JSON files, which duplicate Session events.

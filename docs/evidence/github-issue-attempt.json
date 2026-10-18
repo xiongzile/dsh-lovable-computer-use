@@ -1,0 +1,22 @@
+{
+  "test": "isolated Chromium GitHub issue creation",
+  "at": "2026-10-19T02:16:08+08:00",
+  "outcome": "BLOCKED_ON_HUMAN_LOGIN",
+  "issueCreated": false,
+  "targetRepo": "xiongzile/xiongzile.github.io",
+  "taskId": "task-2026-10-18T18-13-52-397Z-21ed11",
+  "taskStatus": "waiting_for_user",
+  "taskPhase": "waiting_for_login",
+  "isolatedProfile": "/Users/bytedance/Workspace/github/dsh-lovable-computer-use/.dsh-web/lovable-state/profiles/github-issue-test/user-data",
+  "isolatedChromePid": 54764,
+  "userChromePid": 53671,
+  "userChromeProfileUsed": false,
+  "userChromeWindowTouched": false,
+  "loginStateInIsolatedProfile": "logged_in=no; page still showed Sign in",
+  "handoff": "consent granted, visible isolated window opened, then cancelled after 3 goal rounds without login; window closed",
+  "evidence": [
+    "docs/evidence/github-issue-waiting.png",
+    "docs/evidence/github-issue-waiting.json",
+    "docs/evidence/github-issue-task.json"
+  ]
+}

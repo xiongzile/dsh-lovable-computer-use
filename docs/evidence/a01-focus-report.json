@@ -1,0 +1,58 @@
+{
+  "id": "focus-e1e1e1fe",
+  "label": "A-01 headless registration",
+  "startedAt": "2026-10-18T17:31:16.473Z",
+  "stoppedAt": "2026-10-18T17:31:18.654Z",
+  "durationMs": 2181,
+  "intervalMs": 200,
+  "samples": 10,
+  "baseline": {
+    "timestamp": "2026-10-18T17:31:16.473Z",
+    "supported": true,
+    "bundleId": "com.deepseek.dsh",
+    "name": "DeepSeek Harness",
+    "pid": 16073,
+    "pointer": {
+      "x": 1564.55859375,
+      "y": 315.65234375
+    },
+    "chromeProcesses": [
+      "com.google.Chrome",
+      "com.google.Chrome.helper"
+    ]
+  },
+  "final": {
+    "timestamp": "2026-10-18T17:31:18.383Z",
+    "supported": true,
+    "bundleId": "com.deepseek.dsh",
+    "name": "DeepSeek Harness",
+    "pid": 16073,
+    "pointer": {
+      "x": 1564.55859375,
+      "y": 315.65234375
+    },
+    "chromeProcesses": [
+      "com.google.Chrome",
+      "com.google.Chrome.helper",
+      "com.google.Chrome"
+    ]
+  },
+  "transitions": [],
+  "interruptions": [],
+  "pointer": {
+    "sampling": "supported",
+    "start": {
+      "x": 1564.55859375,
+      "y": 315.65234375
+    },
+    "end": {
+      "x": 1564.55859375,
+      "y": 315.65234375
+    },
+    "movedPx": 0,
+    "distanceFromStartPx": 0
+  },
+  "expectedBundleIds": [],
+  "verdict": "no-interruption",
+  "note": "Transitions are observations, not proof of causation. Only an explicit handoff may open a visible window; background browser tools never synthesize input or activate windows."
+}

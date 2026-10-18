@@ -1,0 +1,22 @@
+Real Python LSP verification (pyright 1.1.414, temporary venv)
+
+server: .tmp/pyright-venv/bin/pyright-langserver --stdio
+project: tests/fixtures/python-ok
+source: main.py
+result:
+{
+  "verdict": "lsp_verified",
+  "features": {
+    "semanticTokens": 0,
+    "completionItems": 58,
+    "documentSymbols": 1,
+    "definitions": 0
+  },
+  "diagnostics": [],
+  "stderrSignals": []
+}
+detail: pyright (python) returned 0 semantic token(s), 58 completion item(s), 1 document symbol(s), 0 definition(s); at least two independent language features responded.
+
+Note: pyright is not installed on PATH in this environment; the plugin auto-detects
+`pyright-langserver` when installed. Pylance's bundled server.bundle.js was tested
+with --stdio and did not complete initialize, so it is intentionally not used.

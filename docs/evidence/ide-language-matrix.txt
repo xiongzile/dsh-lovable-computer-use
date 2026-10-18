@@ -1,0 +1,22 @@
+IDE language verification matrix (local run, 2026-10-19)
+
+clangd:        Homebrew clangd version 22.1.6
+rust-analyzer: 1.98.1 (48a229ce 2026-09-01)
+python3:       Python 3.14.5 (runtime check); pyright 1.1.414 in .tmp/pyright-venv for manual LSP check
+
+Tests: 32/32 pass (npm test)
+- generic LSP fake server: semanticTokens=2, completionItems=1, documentSymbols=1, definitions=1, hover present -> lsp_verified
+- Python: py_compile + import main -> runtime passed; .vscode/settings.json interpreter fix with backup/rollback
+- Python LSP: pyright-langserver --stdio -> lsp_verified (58 completions, 1 symbol; semanticTokens unsupported)
+- Rust: rust-analyzer on tests/fixtures/rust-ok -> non-failed LSP verdict, real features
+- ide_verify tool: Rust -> server.id=rust-analyzer, requiresHostConfirmation=true
+- ide_verify tool: Python without LSP -> runtime_verified, probe omitted
+- pyright selection regression: prefers pyright-langserver over pyright CLI
+- clangd/CMake/compile_commands regressions: pass
+
+Not run / not installed:
+- pyright: manually verified in a temporary venv; not on system PATH
+- basedpyright / pylsp: not installed; Pylance bundle --stdio did not complete initialize and is intentionally not used
+- gopls: not installed (Go build adapter implemented, opt-in force)
+- typescript-language-server / tsc: not installed (tsc adapter implemented, opt-in force)
+- jdtls / kotlin-language-server: not installed (detection/adapters only)

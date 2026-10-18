@@ -1,0 +1,18 @@
+Source-checkout web UI validation (dsh --profile lovable-web --patch examples/web-overlay.yml).
+
+Observed UI text after sending the prompt through the DSH web composer:
+
+  系统提示词 Call the foreground_app tool once, then reply with only the frontmost bundle id.
+  01:36 1 次工具调用 · 1 条消息
+  思考 I'll call the tool.
+  工具调用 foreground_app · {}
+  思考 com.deepseek.dsh
+  用量 44.2K tok 用时 2秒
+  工作区内修改 DeepSeek-V41-Flash High 2 轮 3 步 · 354 tok/s 44.2K tok · 缓存命中 50% 2%
+
+This proves the plugin loaded in the source DSH web profile, the web client rendered the
+tool call/result card, and the model called foreground_app successfully. The earlier
+MISSING_CREDENTIAL turn is retained in the same session and shows the web UI's own
+error surface; it is not a plugin failure.
+
+Screenshot: docs/evidence/dsh-web-ui.png

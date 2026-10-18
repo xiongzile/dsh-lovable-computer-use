@@ -1,0 +1,7 @@
+[
+  {
+    "directory": "/nonexistent/build-dir",
+    "file": "/nonexistent/src/main.cpp",
+    "command": "clang++ -std=c++17 -c /nonexistent/src/main.cpp"
+  }
+]

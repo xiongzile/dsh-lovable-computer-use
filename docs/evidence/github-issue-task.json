@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "id": "task-2026-10-18T18-13-52-397Z-21ed11",
+  "title": "GitHub isolated-browser issue test",
+  "goal": "在 xiongzile 的仓库创建一个测试 issue，全程不使用用户 Chrome（仅使用隔离 Chromium profile，不使用 gh/curl/API，不使用用户 Chrome profile 或 cookies）",
+  "status": "waiting_for_user",
+  "phase": "waiting_for_login",
+  "createdAt": "2026-10-18T18:13:52.397Z",
+  "updatedAt": "2026-10-18T18:15:59.189Z",
+  "owner": {
+    "pid": 53556,
+    "agentId": "session-7d5f5bce-9eda-4345-bedd-d8df21483ff3",
+    "sessionId": "session-7d5f5bce-9eda-4345-bedd-d8df21483ff3",
+    "workspace": "/Users/bytedance/Workspace/github"
+  },
+  "steps": [
+    {
+      "at": "2026-10-18T18:13:52.397Z",
+      "action": "task started",
+      "result": "在 xiongzile 的仓库创建一个测试 issue，全程不使用用户 Chrome（仅使用隔离 Chromium profile，不使用 gh/curl/API，不使用用户 Chrome profile 或 cookies）",
+      "ok": true
+    },
+    {
+      "at": "2026-10-18T18:13:57.256Z",
+      "action": "waiting for user",
+      "result": "需要登录 GitHub 才能创建 issue",
+      "ok": true
+    },
+    {
+      "at": "2026-10-18T18:15:47.705Z",
+      "action": "status → waiting_for_user",
+      "result": "The human did not confirm completion of the headed handoff; the visible window was closed.",
+      "ok": true
+    },
+    {
+      "at": "2026-10-18T18:15:59.179Z",
+      "action": "evidence recorded (runtime_check)",
+      "result": "隔离 profile github-issue-test 中的 GitHub 会话未登录，因此无法创建 issue；仓库 Issues 功能可用（页面可见 1 个 open issue），New issue 链接被重定向到 /login。",
+      "ok": true
+    },
+    {
+      "at": "2026-10-18T18:15:59.189Z",
+      "action": "status → waiting_for_user",
+      "result": "隔离浏览器已到达仓库 Issues 页面，但未登录；handoff 被取消，issue 未创建，等待用户完成 GitHub 登录后重试。",
+      "ok": true
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev-30c5404d",
+      "claim": "隔离 profile github-issue-test 中的 GitHub 会话未登录，因此无法创建 issue；仓库 Issues 功能可用（页面可见 1 个 open issue），New issue 链接被重定向到 /login。",
+      "level": "runtime_check",
+      "detail": "background_browser_open(profile=github-issue-test, url=https://github.com/xiongzile/xiongzile.github.io/issues) 返回页面标题 \"Issues · xiongzile/xiongzile.github.io · GitHub\"，顶部控件为 [e10] link \"Sign in\" href=\"/login?return_to=...\"，[e33] link \"New issue\" href=\"/login?return_to=https://github.com/xiongzile/xiongzile.github.io/issues\"，说明当前为登出状态。列表显示 \"mlir-toy-compiler xiongzile/xiongzile.github.io#1 opened on Oct 18, 2026\"，说明 Issues 开启。随后 background_browser_handoff(taskId=task-2026-10-18T18-13-52-397Z-21ed11) 返回 \"Handoff cancelled: The user did not confirm completion\"，重新 open 后页面仍显示 Sign in。未使用 gh/curl/API，未读取用户 Chrome profile 或 cookies。",
+      "artifacts": [],
+      "recordedAt": "2026-10-18T18:15:59.179Z"
+    }
+  ],
+  "changes": [],
+  "interventions": [
+    {
+      "at": "2026-10-18T18:13:57.256Z",
+      "reason": "需要登录 GitHub 才能创建 issue",
+      "instructions": "请在独立浏览器窗口中登录 GitHub，完成后回到 DSH 点击继续"
+    }
+  ],
+  "waiting": {
+    "reason": "需要登录 GitHub 才能创建 issue",
+    "instructions": "请在独立浏览器窗口中登录 GitHub，完成后回到 DSH 点击继续",
+    "since": "2026-10-18T18:13:57.256Z"
+  }
+}

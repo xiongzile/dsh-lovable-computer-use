@@ -1,0 +1,46 @@
+{
+  "name": "dsh-lovable-computer-use",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Background-first computer-use capabilities for DeepSeek Harness: isolated Chromium profiles, browser handoff, shared Session/Goal lifecycle, foreground-interruption evidence, and language-agnostic IDE verification.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "prebuild": "npm run clean",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test:unit": "npm run build && node --test tests/unit/*.test.mjs",
+    "test:e2e": "npm run build && node --test tests/e2e/*.test.mjs",
+    "test": "npm run build && node --test tests/unit/*.test.mjs tests/e2e/*.test.mjs",
+    "acceptance:browser": "npm run build && node scripts/acceptance-browser.mjs",
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\""
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "engines": {
+    "node": ">=22.19"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "typescript": "^5.9.3"
+  }
+}

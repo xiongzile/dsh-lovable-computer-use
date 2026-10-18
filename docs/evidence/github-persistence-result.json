@@ -1,0 +1,38 @@
+{
+  "test": "GitHub login persistence across DSH web process restart",
+  "at": "2026-10-19T02:27:00+08:00",
+  "outcome": "PASS",
+  "issueCreated": true,
+  "issueUrl": "https://github.com/xiongzile/xiongzile.github.io/issues/2",
+  "issueNumber": 2,
+  "issueTitle": "[test] DSH isolated-browser issue creation 2026-10-19",
+  "issueState": "open",
+  "taskId": "task-2026-10-18T18-21-38-587Z-29551d",
+  "taskStatus": "completed",
+  "taskPhase": "persistence_verified_creating_issue",
+  "evidenceCount": 2,
+  "canary": {
+    "url": "https://github.com/settings/profile",
+    "loginMeta": "xiongzile",
+    "signInAppears": false,
+    "checkedAfter": "restarting the source DSH web process (same DSH_HOME/stateDir/profile key)"
+  },
+  "harness": {
+    "sourceWebUrl": "http://127.0.0.1:57364/",
+    "webProcessRestarted": true,
+    "recovery": "task was marked recovering after restart; task_recover (no args) found it; action=resume",
+    "profile": "github-issue-test",
+    "profileDir": ".dsh-web/lovable-state/profiles/github-issue-test/user-data",
+    "profileClosedWithoutReset": true
+  },
+  "userChrome": {
+    "pidDuringTest": 53671,
+    "used": false,
+    "cookiesImported": false,
+    "windowTouched": false
+  },
+  "artifacts": [
+    "docs/evidence/github-persistence-task.json",
+    "docs/evidence/github-issue-created.png"
+  ]
+}

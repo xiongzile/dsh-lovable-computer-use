@@ -1,0 +1,42 @@
+Real CLion project, read-only diagnosis (no IDE was launched)
+Project: /Users/bytedance/Workspace/github/toy-mlir
+Date: 2026-10-19 (Asia/Shanghai)
+
+diagnosis.status: degraded
+ide: clion
+clion.detected: true
+clion.buildDirectories:
+  - cmake-build-debug
+  - cmake-build-mlir-debug
+primaryDatabase: cmake-build-debug/compile_commands.json
+  valid entries: 3
+  invalid entries: 0
+sourceFile: compiler.cpp
+sourceInDatabase: true
+
+Findings:
+  warning  clangd-config-missing   clangd will not find the compilation database from this source file
+  info     clion-detected          CLion project files detected
+  warning  clion-log-hints         CLion log mentions clangd/compilation-database problems (10 historical lines)
+
+Live clangd probe (compileCommandsDir=cmake-build-debug):
+  verdict: lsp_verified
+  semanticTokens: 74
+  completionItems: 50
+  hover: "namespace-alias cl\n\nnamespace cl = llvm::cl"
+  documentSymbols: 4
+  definitions: 1
+  stderrSignals: []
+  diagnostics: 6
+
+What this proves:
+  - The plugin can read a real CLion project and both CMake build directories.
+  - The real compile_commands.json is valid and clangd loads it.
+  - A live clangd session produces semantic tokens/completions/hover for compiler.cpp.
+
+What this does NOT prove:
+  - CLion's own window was never opened; its internal highlighting/index state was not observed.
+  - VS Code was never opened; clangd extension behavior in its UI was not observed.
+  - Therefore host_confirmed is still NOT claimed. ide_verify returns requiresHostConfirmation=true.
+
+Full structured output: docs/evidence/ide-real-project.json

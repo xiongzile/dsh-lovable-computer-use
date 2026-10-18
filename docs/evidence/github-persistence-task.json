@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "id": "task-2026-10-18T18-21-38-587Z-29551d",
+  "title": "GitHub login persistence test",
+  "goal": "login once, close browser, restart web process, reuse same profile and create issue",
+  "status": "completed",
+  "createdAt": "2026-10-18T18:21:38.587Z",
+  "updatedAt": "2026-10-18T18:26:20.455Z",
+  "owner": {
+    "pid": 53556,
+    "agentId": "session-14621807-98a9-4b1a-bb5b-aeeb22d6bae3",
+    "sessionId": "session-14621807-98a9-4b1a-bb5b-aeeb22d6bae3",
+    "workspace": "/Users/bytedance/Workspace/github"
+  },
+  "steps": [
+    {
+      "at": "2026-10-18T18:21:38.587Z",
+      "action": "task started",
+      "result": "login once, close browser, restart web process, reuse same profile and create issue",
+      "ok": true
+    },
+    {
+      "at": "2026-10-18T18:21:43.091Z",
+      "action": "waiting for user",
+      "result": "需要登录 GitHub 以验证持久登录",
+      "ok": true
+    },
+    {
+      "at": "2026-10-18T18:24:46.584Z",
+      "action": "human intervention resolved",
+      "result": "Human completed the visible verification window.",
+      "ok": true
+    },
+    {
+      "at": "2026-10-18T18:24:51.157Z",
+      "action": "evidence recorded (isolated_gui)",
+      "result": "Authenticated GitHub session established in the isolated profile github-issue-test: /settings/profile loads directly (not /login) with signed-in login meta user-login=xiongzile.",
+      "ok": true
+    },
+    {
+      "at": "2026-10-18T18:24:53.719Z",
+      "action": "status → running",
+      "result": "Logged in via isolated handoff; canary eval shows /settings/profile with user-login=xiongzile; browser closed with login state kept. Awaiting web process restart to verify persistence. No issue created.",
+      "ok": true
+    },
+    {
+      "at": "2026-10-18T18:25:13.609Z",
+      "action": "crash detected",
+      "result": "owner pid 53556 is gone",
+      "ok": false
+    },
+    {
+      "at": "2026-10-18T18:26:03.289Z",
+      "action": "recovery resumed",
+      "result": "Side effects must be verified against the external system before replay.",
+      "ok": true
+    },
+    {
+      "at": "2026-10-18T18:26:06.363Z",
+      "action": "status → running",
+      "result": "After web restart, reopened profile github-issue-test; /settings/profile loads signed-in (user-login=xiongzile, no Sign in). Confirmed no prior test issue exists. Proceeding to create issue.",
+      "ok": true
+    },
+    {
+      "at": "2026-10-18T18:26:18.098Z",
+      "action": "change recorded: external",
+      "result": "Created GitHub issue #2 \"[test] DSH isolated-browser issue creation 2026-10-19\" on xiongzile/xiongzile.github.io via the isolated headless browser after a web-process restart, proving login persistence. No repository files changed.",
+      "ok": true
+    },
+    {
+      "at": "2026-10-18T18:26:18.107Z",
+      "action": "evidence recorded (runtime_check)",
+      "result": "Login persisted across the DSH web process restart: the same isolated profile github-issue-test reopened signed in as xiongzile without any handoff/login, and an issue was created from that session.",
+      "ok": true
+    },
+    {
+      "at": "2026-10-18T18:26:20.455Z",
+      "action": "finished as completed",
+      "result": "Recovered the interrupted \"GitHub login persistence test\" task, confirmed no prior test issue existed, resumed it, and proved that the isolated GitHub login survives a DSH web process restart: profile github-issue-test reopened on /settings/profile signed in as xiongzile with no Sign in prompt and no handoff. From that post-restart session an issue was created through the GitHub web UI — [test] DSH isolated-browser issue creation 2026-10-19, https://github.com/xiongzile/xiongzile.github.io/issues/2 (Open). The profile was then closed with login state preserved (reset=false).",
+      "ok": true
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev-f0c42c0a",
+      "claim": "Authenticated GitHub session established in the isolated profile github-issue-test: /settings/profile loads directly (not /login) with signed-in login meta user-login=xiongzile.",
+      "level": "isolated_gui",
+      "detail": "background_browser_eval on https://github.com/settings/profile returned {\"href\":\"https://github.com/settings/profile\",\"title\":\"Your profile\",\"onLogin\":false,\"signedInHint\":\"xiongzile\",\"hasProfileForm\":true}. Screenshot: /Users/bytedance/Workspace/github/dsh-lovable-computer-use/.dsh-web/lovable-state/artifacts/github-issue-test/2026-10-18T18-24-49-119Z.png. Login was performed by the human in the isolated handoff window; the user's own Chrome was never used.",
+      "artifacts": [
+        "/Users/bytedance/Workspace/github/dsh-lovable-computer-use/.dsh-web/lovable-state/artifacts/github-issue-test/2026-10-18T18-24-49-119Z.png"
+      ],
+      "command": "background_browser_eval profile=github-issue-test expression=location.href / document.title / meta[name=user-login]",
+      "recordedAt": "2026-10-18T18:24:51.157Z"
+    },
+    {
+      "id": "ev-275fb76f",
+      "claim": "Login persisted across the DSH web process restart: the same isolated profile github-issue-test reopened signed in as xiongzile without any handoff/login, and an issue was created from that session.",
+      "level": "runtime_check",
+      "detail": "Canary after restart: background_browser_eval on https://github.com/settings/profile returned {\"href\":\"https://github.com/settings/profile\",\"loginMeta\":\"xiongzile\",\"signInAppears\":false,\"signInLinks\":[],\"title\":\"Your profile\",\"readyState\":\"complete\"} — no Sign in prompt, so the persisted cookies still authenticate. Duplicate check before resume: repo issues search showed only #1 \"mlir-toy-compiler\" by utterances-bot, no prior test issue. Then created issue via the issues/new page: https://github.com/xiongzile/xiongzile.github.io/issues/2 titled \"[test] DSH isolated-browser issue creation 2026-10-19\", page reports \"xiongzile opened on Oct 19, 2026\" and status Open; screenshot /Users/bytedance/Workspace/github/dsh-lovable-computer-use/.dsh-web/lovable-state/artifacts/github-issue-test/2026-10-18T18-26-13-160Z.png. Profile was opened with reused=false after restart yet stayed authenticated.",
+      "artifacts": [],
+      "command": "background_browser_open/eval profile=github-issue-test; background_browser_open https://github.com/xiongzile/xiongzile.github.io/issues/new then Create",
+      "recordedAt": "2026-10-18T18:26:18.107Z"
+    }
+  ],
+  "changes": [
+    {
+      "id": "chg-9091f4ad",
+      "path": "https://github.com/xiongzile/xiongzile.github.io/issues/2",
+      "action": "external",
+      "description": "Created GitHub issue #2 \"[test] DSH isolated-browser issue creation 2026-10-19\" on xiongzile/xiongzile.github.io via the isolated headless browser after a web-process restart, proving login persistence. No repository files changed.",
+      "rollback": "Close or delete issue #2 in the GitHub UI (or via the issue page's \"Delete issue\" action); no other state was modified.",
+      "sideEffect": true,
+      "verificationHint": "Check https://github.com/xiongzile/xiongzile.github.io/issues/2 — it should exist exactly once with that title; the issues list should show 2 issues total (#1 utterances-bot, #2 this test).",
+      "recordedAt": "2026-10-18T18:26:18.098Z"
+    }
+  ],
+  "interventions": [
+    {
+      "at": "2026-10-18T18:21:43.091Z",
+      "reason": "需要登录 GitHub 以验证持久登录",
+      "instructions": "请在独立窗口登录 GitHub，完成后回到 DSH 点击继续",
+      "answer": "Human completed the visible verification window.",
+      "resolvedAt": "2026-10-18T18:24:46.584Z"
+    }
+  ],
+  "phase": "persistence_verified_creating_issue",
+  "recovery": {
+    "interruptedAt": "2026-10-18T18:25:13.609Z",
+    "previousStatus": "running",
+    "note": "The owning process disappeared before the task finished. Verify side effects before replaying any action, then resume or abandon explicitly.",
+    "resolved": "resumed",
+    "resolvedAt": "2026-10-18T18:26:03.289Z"
+  },
+  "result": {
+    "summary": "Recovered the interrupted \"GitHub login persistence test\" task, confirmed no prior test issue existed, resumed it, and proved that the isolated GitHub login survives a DSH web process restart: profile github-issue-test reopened on /settings/profile signed in as xiongzile with no Sign in prompt and no handoff. From that post-restart session an issue was created through the GitHub web UI — [test] DSH isolated-browser issue creation 2026-10-19, https://github.com/xiongzile/xiongzile.github.io/issues/2 (Open). The profile was then closed with login state preserved (reset=false).",
+    "status": "completed"
+  },
+  "verification": {
+    "level": "runtime_check",
+    "detail": "background_browser_eval after restart on https://github.com/settings/profile: {\"href\":\"https://github.com/settings/profile\",\"loginMeta\":\"xiongzile\",\"signInAppears\":false,\"signInLinks\":[]} — authenticated with no login prompt. Issue creation observed at https://github.com/xiongzile/xiongzile.github.io/issues/2 rendering \"xiongzile opened on Oct 19, 2026\", status Open, with the exact requested title/body; screenshot artifacts/github-issue-test/2026-10-18T18-26-13-160Z.png captured (1440x813)."
+  }
+}

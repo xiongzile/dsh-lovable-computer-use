@@ -1,0 +1,23 @@
+{
+  "verdict": "lsp_verified",
+  "server": {
+    "id": "pyright",
+    "path": "/Users/bytedance/Workspace/github/dsh-lovable-computer-use/.tmp/pyright-venv/bin/pyright-langserver",
+    "displayName": "pyright"
+  },
+  "features": {
+    "semanticTokens": 0,
+    "completionItems": 58,
+    "documentSymbols": 1,
+    "definitions": 0
+  },
+  "runtime": {
+    "status": "passed",
+    "kind": "python",
+    "command": "/usr/bin/python3 -m py_compile /Users/bytedance/Workspace/github/dsh-lovable-computer-use/tests/fixtures/python-ok/main.py && /usr/bin/python3 -c import importlib; importlib.import_module(\"main\")",
+    "exitCode": 0,
+    "durationMs": 71,
+    "detail": "Python checks passed: py_compile: ok; import main: ok"
+  },
+  "requiresHostConfirmation": true
+}

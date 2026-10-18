@@ -1,0 +1,36 @@
+Independent verification after the web-agent task (2026-10-19, Asia/Shanghai)
+
+repo: /Users/bytedance/Workspace/github/vllm
+commit: ff01a6b14f329ccd4162fce309913542e2abcd5b
+message: [Bugfix][Frontend] Stop beam search on generation config EOS tokens (#62072)
+clone depth: 1 (shallow)
+
+.venv/bin/python -V
+  Python 3.11.15
+
+.venv/bin/python -c "import vllm; print(vllm.__version__)"
+  0.1.dev1+gff01a6b14
+
+compiled extensions:
+  vllm/_C.abi3.so
+  vllm/spinloop.abi3.so
+  vllm/fs_io_C.abi3.so
+
+sizes:
+  vllm repo: 1.6G
+  .venv:     1.4G
+
+VS Code workspace registration:
+  ~/Library/Application Support/Code/User/workspaceStorage/e15dd8b812531369eeedcb1ee6b352da/workspace.json
+  {"folder": "file:///Users/bytedance/Workspace/github/vllm"}
+
+Python extension log:
+  Active interpreter [/Users/bytedance/Workspace/github/vllm]: /Users/bytedance/Workspace/github/vllm/.venv/bin/python
+
+CPU smoke (OPT-125M, float32, 2 prompts):
+  LOAD_SECONDS 24.0
+  PROMPT: 'Hello, my name is'
+  OUTPUT: ' J.C. and I am a student at the University of California, Berkeley. I am a graduate of the University'
+  PROMPT: 'The capital of France is'
+  OUTPUT: ' the capital of the French Republic....'
+  TOTAL_SECONDS 24.5

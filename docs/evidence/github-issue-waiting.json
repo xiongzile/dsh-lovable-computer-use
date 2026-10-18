@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-18T18:15:03.130Z",
+  "isolatedProfile": "/Users/bytedance/Workspace/github/dsh-lovable-computer-use/.dsh-web/lovable-state/profiles/github-issue-test/user-data",
+  "isolatedChromePid": 54764,
+  "userChromePid": 53671,
+  "page": {
+    "url": "https://github.com/xiongzile/xiongzile.github.io/issues",
+    "title": "Issues · xiongzile/xiongzile.github.io · GitHub",
+    "signInVisible": true,
+    "repo": "xiongzile/xiongzile.github.io"
+  },
+  "note": "Waiting for the human to sign in to GitHub in the isolated window. The user Chrome process/profile was not used."
+}

@@ -1,0 +1,216 @@
+{
+  "projectDir": "/Users/bytedance/Workspace/github/toy-mlir",
+  "diagnosis": {
+    "projectDir": "/Users/bytedance/Workspace/github/toy-mlir",
+    "ide": "clion",
+    "sourceFile": "/Users/bytedance/Workspace/github/toy-mlir/compiler.cpp",
+    "detected": {
+      "cmakeLists": true,
+      "cmakeCache": true,
+      "compileFlagsTxt": false,
+      "dotIdea": true,
+      "dotVscode": false
+    },
+    "compileDatabases": [
+      {
+        "path": "/Users/bytedance/Workspace/github/toy-mlir/cmake-build-debug/compile_commands.json",
+        "directory": "/Users/bytedance/Workspace/github/toy-mlir/cmake-build-debug",
+        "exists": true,
+        "entries": 3,
+        "valid": 3,
+        "invalid": 0,
+        "uniqueFiles": [
+          "/Users/bytedance/Workspace/github/toy-mlir/compiler.cpp",
+          "/Users/bytedance/Workspace/github/toy-mlir/mlir/MlirGen.cpp",
+          "/Users/bytedance/Workspace/github/toy-mlir/mlir/ZLDialect.cpp"
+        ],
+        "invalidEntries": [],
+        "duplicateFiles": []
+      },
+      {
+        "path": "/Users/bytedance/Workspace/github/toy-mlir/cmake-build-mlir-debug/compile_commands.json",
+        "directory": "/Users/bytedance/Workspace/github/toy-mlir/cmake-build-mlir-debug",
+        "exists": true,
+        "entries": 3,
+        "valid": 3,
+        "invalid": 0,
+        "uniqueFiles": [
+          "/Users/bytedance/Workspace/github/toy-mlir/compiler.cpp",
+          "/Users/bytedance/Workspace/github/toy-mlir/mlir/MlirGen.cpp",
+          "/Users/bytedance/Workspace/github/toy-mlir/mlir/ZLDialect.cpp"
+        ],
+        "invalidEntries": [],
+        "duplicateFiles": []
+      }
+    ],
+    "primaryDatabase": {
+      "path": "/Users/bytedance/Workspace/github/toy-mlir/cmake-build-debug/compile_commands.json",
+      "directory": "/Users/bytedance/Workspace/github/toy-mlir/cmake-build-debug",
+      "exists": true,
+      "entries": 3,
+      "valid": 3,
+      "invalid": 0,
+      "uniqueFiles": [
+        "/Users/bytedance/Workspace/github/toy-mlir/compiler.cpp",
+        "/Users/bytedance/Workspace/github/toy-mlir/mlir/MlirGen.cpp",
+        "/Users/bytedance/Workspace/github/toy-mlir/mlir/ZLDialect.cpp"
+      ],
+      "invalidEntries": [],
+      "duplicateFiles": []
+    },
+    "sourceInDatabase": true,
+    "clangd": {
+      "found": true,
+      "path": "/opt/homebrew/opt/llvm/bin/clangd",
+      "version": "Homebrew clangd version 22.1.6"
+    },
+    "cmake": {
+      "found": true,
+      "path": "/Applications/CMake.app/Contents/bin/cmake",
+      "exportCompileCommands": "1"
+    },
+    "clion": {
+      "detected": true,
+      "projectFiles": [
+        "/Users/bytedance/Workspace/github/toy-mlir/.idea/workspace.xml",
+        "/Users/bytedance/Workspace/github/toy-mlir/.idea/misc.xml"
+      ],
+      "buildDirectories": [
+        "/Users/bytedance/Workspace/github/toy-mlir/cmake-build-debug",
+        "/Users/bytedance/Workspace/github/toy-mlir/cmake-build-mlir-debug"
+      ],
+      "logs": [
+        {
+          "path": "/Users/bytedance/Library/Logs/JetBrains/CLion2026.1/idea.log",
+          "hints": [
+            "\tat com.intellij.cidr.clangd.novaBridge.RadRootFileUtilKt.getRootFile(RadRootFileUtil.kt:47)",
+            "\tat com.intellij.cidr.clangd.novaBridge.RadClangIdeFacadeImpl.getResolveInfoForFile(RadClangIdeFacadeImpl.kt:29)",
+            "\tat com.jetbrains.cidr.lang.daemon.clang.clangd.lsp.ClangIdeFacadeImpl.getCompilationCommandAsync(ClangIdeFacadeImpl.java:139)",
+            "\tat com.jetbrains.cidr.lang.daemon.clang.clangd.lsp.server.ClangReparseNotification.lambda$createPromise$1(ClangReparseNotification.java:62)",
+            "\tat com.jetbrains.cidr.lang.daemon.clang.clangd.lsp.server.ClangHeavyRequestBuilder.lambda$laterAsync$1(ClangHeavyRequestBuilder.java:50)",
+            "\tat com.jetbrains.cidr.lang.daemon.clang.clangd.lsp.server.ClangHeavyRequestBuilder.runDeferred(ClangHeavyRequestBuilder.java:64)",
+            "\tat com.jetbrains.cidr.lang.daemon.clang.clangd.lsp.ClangdLanguageService.notifyReparseRequired(ClangdLanguageService.java:1380)",
+            "\tat com.intellij.cidr.clangd.novaBridge.RadClangdEditorContextExtListener.notifyEditorToRootEvent$lambda$0(RadClangdEditorContextExtListener.kt:27)",
+            "\tat com.intellij.cidr.clangd.novaBridge.RadClangdEditorContextExtListener.notifyEditorToRootEvent(RadClangdEditorContextExtListener.kt:25)",
+            "\tat com.intellij.cidr.clangd.novaBridge.RadClangdEditorContextExtListener.extensionCreated$lambda$0(RadClangdEditorContextExtListener.kt:19)"
+          ]
+        }
+      ],
+      "exportFlagMentioned": false
+    },
+    "findings": [
+      {
+        "id": "clangd-config-missing",
+        "severity": "warning",
+        "title": "clangd will not find the compilation database from this source file",
+        "detail": "clangd searches the source file's parent directories for compile_commands.json. This database lives in a sibling build directory, so clangd needs an explicit CompilationDatabase in .clangd.",
+        "evidence": [
+          "database: /Users/bytedance/Workspace/github/toy-mlir/cmake-build-debug/compile_commands.json",
+          "source: /Users/bytedance/Workspace/github/toy-mlir/compiler.cpp"
+        ],
+        "fix": {
+          "tool": "ide_fix",
+          "args": {
+            "projectDir": "/Users/bytedance/Workspace/github/toy-mlir",
+            "finding": "clangd-config",
+            "compileCommandsDir": "/Users/bytedance/Workspace/github/toy-mlir/cmake-build-debug",
+            "apply": true
+          },
+          "description": "Write CompileFlags.CompilationDatabase into .clangd after backing up the previous configuration."
+        }
+      },
+      {
+        "id": "clion-detected",
+        "severity": "info",
+        "title": "CLion project files detected",
+        "detail": "CLion uses its own C++ engine; a valid compile_commands.json still matters for clangd-based verification and for any external clangd/clang-tidy integration. A successful clangd probe does not prove CLion's own UI is fixed.",
+        "evidence": [
+          "/Users/bytedance/Workspace/github/toy-mlir/.idea",
+          "/Users/bytedance/Workspace/github/toy-mlir/cmake-build-debug",
+          "/Users/bytedance/Workspace/github/toy-mlir/cmake-build-mlir-debug"
+        ]
+      },
+      {
+        "id": "clion-log-hints",
+        "severity": "warning",
+        "title": "CLion log mentions clangd/compilation-database problems (10)",
+        "detail": "These are raw log lines from CLion's own log; they may describe an earlier session. Compare timestamps before acting.",
+        "evidence": [
+          "\tat com.intellij.cidr.clangd.novaBridge.RadRootFileUtilKt.getRootFile(RadRootFileUtil.kt:47)",
+          "\tat com.intellij.cidr.clangd.novaBridge.RadClangIdeFacadeImpl.getResolveInfoForFile(RadClangIdeFacadeImpl.kt:29)",
+          "\tat com.jetbrains.cidr.lang.daemon.clang.clangd.lsp.ClangIdeFacadeImpl.getCompilationCommandAsync(ClangIdeFacadeImpl.java:139)",
+          "\tat com.jetbrains.cidr.lang.daemon.clang.clangd.lsp.server.ClangReparseNotification.lambda$createPromise$1(ClangReparseNotification.java:62)",
+          "\tat com.jetbrains.cidr.lang.daemon.clang.clangd.lsp.server.ClangHeavyRequestBuilder.lambda$laterAsync$1(ClangHeavyRequestBuilder.java:50)"
+        ]
+      }
+    ],
+    "recommendedVerification": {
+      "projectDir": "/Users/bytedance/Workspace/github/toy-mlir",
+      "sourceFile": "/Users/bytedance/Workspace/github/toy-mlir/compiler.cpp",
+      "compileCommandsDir": "/Users/bytedance/Workspace/github/toy-mlir/cmake-build-debug"
+    },
+    "status": "degraded"
+  },
+  "probe": {
+    "clangdPath": "/opt/homebrew/opt/llvm/bin/clangd",
+    "version": "Homebrew clangd version 22.1.6 mac+xpc arm64-apple-darwin25.5.0",
+    "initializeMs": 66,
+    "sourceFile": "/Users/bytedance/Workspace/github/toy-mlir/compiler.cpp",
+    "compileCommandsDir": "/Users/bytedance/Workspace/github/toy-mlir/cmake-build-debug",
+    "features": {
+      "semanticTokens": 74,
+      "completionItems": 50,
+      "hover": "namespace-alias cl\n\nnamespace cl = llvm::cl",
+      "documentSymbols": 4,
+      "definitions": 1
+    },
+    "diagnostics": [
+      {
+        "severity": 1,
+        "message": "In included file: 'ZLDialect.h.inc' file not found\n\n/Users/bytedance/Workspace/github/toy-mlir/include/ZLDialect.h:13:10:\nnote: error occurred here",
+        "line": 9,
+        "character": 10,
+        "source": "clang"
+      },
+      {
+        "severity": 1,
+        "message": "Use of undeclared identifier 'zl'; did you mean 'mlir::zl'? (fix available)\n\ncompiler.cpp:15:17: note: 'mlir::zl' declared here",
+        "line": 36,
+        "character": 23,
+        "source": "clang"
+      },
+      {
+        "severity": 3,
+        "message": "'mlir::zl' declared here\n\ncompiler.cpp:36:23: error: use of undeclared identifier 'zl'; did you mean 'mlir::zl'?",
+        "line": 15,
+        "character": 17
+      },
+      {
+        "severity": 1,
+        "message": "No member named 'ZlDialect' in namespace 'mlir::zl'",
+        "line": 36,
+        "character": 27,
+        "source": "clang"
+      },
+      {
+        "severity": 1,
+        "message": "No member named 'dump' in 'mlir::ModuleOp'",
+        "line": 42,
+        "character": 13,
+        "source": "clang"
+      },
+      {
+        "severity": 2,
+        "message": "Included header ZLDialect.h is not used directly (fix available)",
+        "line": 9,
+        "character": 1,
+        "source": "clangd"
+      }
+    ],
+    "stderrSignals": [],
+    "compileDatabaseLoaded": true,
+    "verdict": "lsp_verified",
+    "detail": "clangd returned 74 semantic token(s), 50 completion item(s), and 4 document symbol(s); the project compilation database was loaded.",
+    "durationMs": 1294
+  }
+}

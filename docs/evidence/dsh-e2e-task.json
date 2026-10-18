@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "id": "task-2026-10-18T17-28-08-859Z-f85112",
+  "title": "Register controlled test account (final)",
+  "goal": "Account verified, project configured, evidence recorded",
+  "status": "completed",
+  "createdAt": "2026-10-18T17:28:08.859Z",
+  "updatedAt": "2026-10-18T17:28:38.885Z",
+  "owner": {
+    "pid": 39815,
+    "agentId": "session-a351583e-fec7-4ef1-8592-0c85dcf6e5ae",
+    "sessionId": "session-a351583e-fec7-4ef1-8592-0c85dcf6e5ae",
+    "workspace": "/Users/bytedance/Workspace/github/deepseek-harness"
+  },
+  "steps": [
+    {
+      "at": "2026-10-18T17:28:08.859Z",
+      "action": "task started",
+      "result": "Account verified, project configured, evidence recorded",
+      "ok": true
+    },
+    {
+      "at": "2026-10-18T17:28:37.482Z",
+      "action": "evidence recorded (runtime_check)",
+      "result": "Controlled test account grace.final@example.test was verified and its project dsh-e2e-final was saved as configured (region ap, terms accepted).",
+      "ok": true
+    },
+    {
+      "at": "2026-10-18T17:28:38.885Z",
+      "action": "finished as completed",
+      "result": "Registered Grace Hopper (grace.final@example.test, Navy) via the local test site, verified with code 123456 through Enter, configured project dsh-e2e-final in region ap with terms accepted, captured a screenshot, and closed the isolated profile without reset.",
+      "ok": true
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev-f33ce475",
+      "claim": "Controlled test account grace.final@example.test was verified and its project dsh-e2e-final was saved as configured (region ap, terms accepted).",
+      "level": "runtime_check",
+      "detail": "background_browser_eval on http://127.0.0.1:54201/dashboard returned {\"url\":\"http://127.0.0.1:54201/dashboard\",\"accountStatus\":\"verified\",\"configurationStatus\":\"configured\"}; screenshot /Users/bytedance/Workspace/github/dsh-lovable-computer-use/.tmp/dsh-state-final/artifacts/dsh-e2e-final/2026-10-18T17-28-32-324Z.png shows \"Account status: verified\" and \"Configuration: configured\". Settings form had Project name \"dsh-e2e-final\", Region \"ap\", checkbox \"I accept the test terms\" checked before Save settings.",
+      "artifacts": [
+        "/Users/bytedance/Workspace/github/dsh-lovable-computer-use/.tmp/dsh-state-final/artifacts/dsh-e2e-final/2026-10-18T17-28-32-324Z.png"
+      ],
+      "command": "background_browser_eval: document.querySelector('[data-testid=\"account-status\"]')?.innerText / [data-testid=\"configuration-status\"]?.innerText",
+      "recordedAt": "2026-10-18T17:28:37.482Z"
+    }
+  ],
+  "changes": [],
+  "interventions": [],
+  "result": {
+    "summary": "Registered Grace Hopper (grace.final@example.test, Navy) via the local test site, verified with code 123456 through Enter, configured project dsh-e2e-final in region ap with terms accepted, captured a screenshot, and closed the isolated profile without reset.",
+    "status": "completed"
+  },
+  "verification": {
+    "level": "runtime_check",
+    "detail": "background_browser_eval on http://127.0.0.1:54201/dashboard returned accountStatus \"verified\" and configurationStatus \"configured\"; the screenshot at .tmp/dsh-state-final/artifacts/dsh-e2e-final/2026-10-18T17-28-32-324Z.png visually shows \"Account status: verified\" and \"Configuration: configured\"."
+  }
+}

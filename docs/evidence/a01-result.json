@@ -1,0 +1,17 @@
+{
+  "acceptance": "A-01, A-02",
+  "finishedAt": "2026-10-18T17:31:18.654Z",
+  "site": "http://127.0.0.1:56882",
+  "browser": {
+    "mode": "headless",
+    "sandbox": "disabled-fallback",
+    "version": "Chrome/155.0.8059.80"
+  },
+  "finalUrl": "http://127.0.0.1:56882/dashboard",
+  "accountStatus": "verified",
+  "focusVerdict": "no-interruption",
+  "focusSamples": 10,
+  "focusTransitions": [],
+  "pointerMovedPx": 0,
+  "screenshot": "/Users/bytedance/Workspace/github/dsh-lovable-computer-use/docs/evidence/a01-dashboard.png"
+}
